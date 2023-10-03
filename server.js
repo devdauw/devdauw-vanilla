@@ -12,6 +12,7 @@ const servePage = async (request, response) => {
     response.writeHead(200);
     response.write(file);
     response.end();
+    return;
   }
 
   const file = await fs.readFile("./pages/404.html");
