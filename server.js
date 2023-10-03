@@ -2,6 +2,8 @@
 import http from 'node:http';
 import * as fs from 'node:fs/promises';
 
+const PORT = process.env.PORT || 8080;
+
 const servePage = async (request, response) => {
  const url = request.url;
 
@@ -20,7 +22,7 @@ const servePage = async (request, response) => {
 
 const server = http.createServer();
 
-server.listen(8080);
+server.listen(PORT);
 
 server.on('request', (request, response) => {
   servePage(request, response);
