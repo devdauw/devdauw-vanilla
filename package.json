@@ -1,0 +1,17 @@
+{
+  "name": "devdauw-vanilla",
+  "version": "1.0.0",
+  "description": "Basic website using VanillaJS",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./server.js",
+    "serve": "node ./server.js"
+  },
+  "author": "Julien Dendauw",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
