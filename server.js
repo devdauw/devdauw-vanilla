@@ -18,30 +18,42 @@ const servePage = async (request, response) => {
 
  const htmlExtensionRegex = new RegExp(".*\.(html)");
  if (htmlExtensionRegex.test(url)) {
-  const htmlFile = await fs.readFile(buildPath + url);
-  if (htmlFile) {
-    response.writeHead(200);
-    response.write(htmlFile);
-    response.end();
+  try {
+    const htmlFile = await fs.readFile(buildPath + url);
+    if (htmlFile) {
+      response.writeHead(200);
+      response.write(htmlFile);
+      response.end();
+    }
+  } catch (error) {
+    console.error(`Error while grabbing htmFile @${url}: `, error);
   }
  }
 
  const cssExtensionRegex = new RegExp(".*\.(css)")
  if (cssExtensionRegex.test(url)) {
-  const cssFile = await fs.readFile(buildPath + url);
-  if (cssFile) {
-    response.writeHead(200, { 'Content-Type': 'text/css' });
-    response.write(cssFile);
-    response.end();
+  try {
+    const cssFile = await fs.readFile(buildPath + url);
+    if (cssFile) {
+      response.writeHead(200, { 'Content-Type': 'text/css' });
+      response.write(cssFile);
+      response.end();
+    }
+  } catch (error) {
+    console.error(`Error while grabbing cssFile @${url}: `, error);
   }
  }
 
  const jsExtensionRegex = new RegExp(".*\.(js)");
  if (jsExtensionRegex.test(url)) {
-  const jsFile = await fs.readFile(buildPath + url);
-  response.writeHead(200, { 'Content-Type': 'text/javascript' });
-  response.write(jsFile);
-  response.end();
+  try {
+    const jsFile = await fs.readFile(buildPath + url);
+    response.writeHead(200, { 'Content-Type': 'text/javascript' });
+    response.write(jsFile);
+    response.end();
+  } catch (error) {
+    console.error(`Error while grabbing jsFile @${url}: `, error);
+  }
  }
 
  const htmlFile = await fs.readFile(buildPath + "404.html");
