@@ -30,8 +30,8 @@ const servePage = async (request, response) => {
  if (cssExtensionRegex.test(url)) {
   const cssFile = await fs.readFile(buildPath + url);
   if (cssFile) {
-    response.writeHead(200);
-    response.write(cssFile, { 'Content-Type': 'text/css' });
+    response.writeHead(200, { 'Content-Type': 'text/css' });
+    response.write(cssFile);
     response.end();
   }
  }
