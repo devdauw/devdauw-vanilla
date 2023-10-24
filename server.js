@@ -16,7 +16,7 @@ const servePage = async (request, response) => {
   response.end();
  }
 
- const htmlExtensionRegex = new RegExp(".*\.(html|css)");
+ const htmlExtensionRegex = new RegExp(".*\.(html)");
  if (htmlExtensionRegex.test(url)) {
   const htmlFile = await fs.readFile(buildPath + url);
   if (htmlFile) {
@@ -26,10 +26,20 @@ const servePage = async (request, response) => {
   }
  }
 
+ const cssExtensionRegex = new RegExp(".*\.(css)")
+ if (cssExtensionRegex.test(url)) {
+  const cssFile = await fs.readFile(buildPath + url);
+  if (cssFile) {
+    response.writeHead(200);
+    response.write(cssFile, { 'Content-Type': 'text/css' });
+    response.end();
+  }
+ }
+
  const jsExtensionRegex = new RegExp(".*\.(js)");
  if (jsExtensionRegex.test(url)) {
   const jsFile = await fs.readFile(buildPath + url);
-  response.writeHead(200, { 'Content-Type': 'text/javascript', });
+  response.writeHead(200, { 'Content-Type': 'text/javascript' });
   response.write(jsFile);
   response.end();
  }
