@@ -5,13 +5,25 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:watch": "rollup -c --watch --node-resolve",
     "dev": "nodemon ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node ./server.js"
   },
   "author": "Julien Dendauw",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-terser": "0.4.4",
+    "@web/dev-server": "^0.3.6",
+    "@web/rollup-plugin-copy": "0.4.1",
+    "@web/rollup-plugin-html": "2.0.1",
+    "nodemon": "3.0.1",
+    "rollup": "4.1.4",
+    "rollup-plugin-import-css": "^3.3.5",
+    "rollup-plugin-summary": "2.0.0"
+  },
+  "dependencies": {
+    "@material/web": "1.0.1"
   }
 }
