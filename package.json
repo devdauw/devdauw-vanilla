@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "build:": "rollup -c --node-resolve",
     "build:watch": "rollup -c --watch --node-resolve",
     "dev": "nodemon ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
