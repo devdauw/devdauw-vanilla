@@ -5,7 +5,6 @@ import { copy } from '@web/rollup-plugin-copy';
 import resolve from '@rollup/plugin-node-resolve';
 import { default as terser } from '@rollup/plugin-terser';
 import summary from 'rollup-plugin-summary';
-import path from 'node:path';
 
 export default {
   plugins: [
