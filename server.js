@@ -9,8 +9,6 @@ const buildPath = path.join(process.cwd(), 'build/')
 const servePage = async (request, response) => {
  const url = request.url;
 
- console.log(url)
-
  if (url === "/") {
   try {
     const htmlFile = await fs.readFile(buildPath + "index.html");
