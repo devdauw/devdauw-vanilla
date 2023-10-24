@@ -9,11 +9,18 @@ const buildPath = path.join(process.cwd(), 'build/')
 const servePage = async (request, response) => {
  const url = request.url;
 
+ console.log(url)
+
  if (url === "/") {
-  const htmlFile = await fs.readFile(buildPath + "index.html");
-  response.writeHead(200);
-  response.write(htmlFile);
-  response.end();
+  try {
+    const htmlFile = await fs.readFile(buildPath + "index.html");
+    response.writeHead(200);
+    response.write(htmlFile);
+    response.end();
+    return;
+  } catch (error) {
+    console.error(`Error while grabbing our index.html, that's bad: `, error);
+  }
  }
 
  const htmlExtensionRegex = new RegExp(".*\.(html)");
@@ -60,12 +67,16 @@ const servePage = async (request, response) => {
  }
 
  console.error(`We couldn't find the path you where looking for ${url}. \
-  This action has been logged.`)
- const htmlFile = await fs.readFile(buildPath + "404.html");
- response.writeHead(404);
- response.write(htmlFile);
- response.end();
- return;  
+                This action has been logged.`);
+ try {
+  const htmlErrorFile = await fs.readFile(buildPath + "404.html");
+  response.writeHead(404);
+  response.write(htmlErrorFile);
+  response.end();
+  return;  
+ } catch (error) {
+  console.error('Our 404 page was not found, what are we gonna do?!', error);
+ }
 }
 
 const server = http.createServer();
