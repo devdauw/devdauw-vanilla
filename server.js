@@ -64,7 +64,11 @@ const servePage = async (request, response) => {
   }
  }
 
- console.error(`An user tried to access ${url}. The requesting IP address was ${request.socket.remoteAddress}`);
+ const userIpAddress = request.headers['x-forwarded-for']
+  || request.socket.remoteAddress
+  || null;
+ console.error(`An user tried to access ${url}. The requesting IP address was ${userIpAddress}`);
+ 
  try {
   const htmlErrorFile = await fs.readFile(buildPath + "404.html");
   response.writeHead(404);
