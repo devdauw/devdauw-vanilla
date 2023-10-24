@@ -64,8 +64,7 @@ const servePage = async (request, response) => {
   }
  }
 
- console.error(`We couldn't find the path you where looking for ${url}. \
-                This action has been logged.`);
+ console.error(`An user tried to access ${url}. The requesting IP address was ${request.socket.remoteAddress}`);
  try {
   const htmlErrorFile = await fs.readFile(buildPath + "404.html");
   response.writeHead(404);
