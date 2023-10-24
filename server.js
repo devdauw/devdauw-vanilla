@@ -24,6 +24,7 @@ const servePage = async (request, response) => {
       response.writeHead(200);
       response.write(htmlFile);
       response.end();
+      return;
     }
   } catch (error) {
     console.error(`Error while grabbing htmFile @${url}: `, error);
@@ -38,6 +39,7 @@ const servePage = async (request, response) => {
       response.writeHead(200, { 'Content-Type': 'text/css' });
       response.write(cssFile);
       response.end();
+      return;
     }
   } catch (error) {
     console.error(`Error while grabbing cssFile @${url}: `, error);
@@ -51,6 +53,7 @@ const servePage = async (request, response) => {
     response.writeHead(200, { 'Content-Type': 'text/javascript' });
     response.write(jsFile);
     response.end();
+    return;
   } catch (error) {
     console.error(`Error while grabbing jsFile @${url}: `, error);
   }
