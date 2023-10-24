@@ -56,6 +56,8 @@ const servePage = async (request, response) => {
   }
  }
 
+ console.error(`We couldn't find the path you where looking for ${url}. \
+  This action has been logged.`)
  const htmlFile = await fs.readFile(buildPath + "404.html");
  response.writeHead(404);
  response.write(htmlFile);
