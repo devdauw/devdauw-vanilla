@@ -1,6 +1,4 @@
-import "@material/web/tabs/tabs";
-
-const resp = await fetch("/header.html");
+const resp = await fetch("header.html");
 const html = await resp.text();
 
 const headerTemplate = document.createElement('template');

@@ -1,17 +1,28 @@
 <style>
-  nav {
-    width: 80%;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
-  md-tabs {
-    background-color: aqua;
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+
+    li {
+      min-width: 5rem;
+    }
   }
 </style>
 
-<header>
+<div>
+  <img src="https://placehold.co/100x50">
+  <span>Julien Dendauw</span>
   <nav>
-    <md-tabs>
-      <md-primary-tabs active>Home</md-primary-tabs>
-      <md-primary-tabs>Contact</md-primary-tabs>
-    </md-tabs>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="https://github.com/devdauw" target="_blank" rel="noopener noreferrer">Github</a></li>
+      <li><a href="https://www.linkedin.com/in/juliendendauw/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    </ul>
   </nav>
-</header>
+</div>
