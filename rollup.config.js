@@ -3,7 +3,6 @@ import { rollupPluginHTML as html } from '@web/rollup-plugin-html';
 import css from "rollup-plugin-import-css";
 import { copy } from '@web/rollup-plugin-copy';
 import resolve from '@rollup/plugin-node-resolve';
-import { default as terser } from '@rollup/plugin-terser';
 import summary from 'rollup-plugin-summary';
 
 export default {
