@@ -16,11 +16,6 @@ export default {
     css(),
     // Resolve bare module specifiers to relative paths
     resolve(),
-    terser({
-      ecma: 2021,
-      module: true,
-      warnings: true,
-    }),
     // Print bundle summary
     summary(),
     // Optional: copy any static assets to build directory
