@@ -2,5 +2,10 @@
 
 :root {
   font-family: 'Sometype Mono', monospace;
-  background-color: red;
+}
+
+#main-content {
+  max-width: 80%;
+  margin: auto;
+  display: grid;
 }
