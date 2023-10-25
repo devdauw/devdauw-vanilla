@@ -3,7 +3,10 @@
     <head>
       <script type="module" src="index.mjs"></script>
       <script type="module" src="/components/header/header.mjs"></script>
-      <link rel="stylesheet" href="main.css">
+      <script type="module" src="/components/hero_banner/hero_banner.mjs"></script>
+      <script type="module" src="/components/footer/footer.mjs"></script>
+
+      <link rel="stylesheet" href="/main.css">
 
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +14,15 @@
     </head>
     <body>
       <header-component></header-component>
-      <section>
+      <hero_banner-component></hero_banner-component>
+      <section id="main-content">
         <p>
-          Welcome on my website, this is using VanillaJS for everything. Why you may ask? React and consort are just unnecessary overhead.
-          In my day to day, like everybody I'm using React swq.
+          Welcome on my website, this is using Vanilla JavaScript & CSS for everything. Why you may ask? React and consort are just unnecessary overhead on a private project. In my day to day, like everybody I'm using React, Express & all that jam and, as I continue to develop my software engineer skills, I feel like the whole opacity of the frameworks is holding me back.
+        </p>
+        <p>
+          That's why I decided to work from scracth on this `website`. So it's using NodeJS for serving pages instead of relying on Express/Deno/Bun or anything else. The only package imported from NPM are a bundler (rollup) so that I can use libraries for composing my website. I chose to use Material UI that just released version 3 recently.
         </p>
       </section>
-      <md-filled-button>Next</md-filled-button>
+      <footer-component></footer-component>
     </body>
 </html>

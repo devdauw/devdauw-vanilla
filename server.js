@@ -47,7 +47,7 @@ const servePage = async (request, response) => {
       return;
     }
   } catch (error) {
-    console.error(`Error while grabbing cssFile @${url}: `, error);
+    console.error(`Error while grabbing cssFile @ ${url}: `, error);
   }
  }
 
@@ -68,7 +68,7 @@ const servePage = async (request, response) => {
   || request.socket.remoteAddress
   || null;
  console.error(`An user tried to access ${url}. The requesting IP address was ${userIpAddress}`);
- 
+
  try {
   const htmlErrorFile = await fs.readFile(buildPath + "404.html");
   response.writeHead(404);
