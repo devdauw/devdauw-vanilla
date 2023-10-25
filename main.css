@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap');
+
+:root {
+  font-family: 'Sometype Mono', monospace;
+}
+
+#main-content {
+  max-width: 80%;
+  margin: auto;
+  display: grid;
+}
