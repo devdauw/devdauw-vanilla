@@ -24,6 +24,7 @@
     "rollup-plugin-summary": "2.0.0"
   },
   "dependencies": {
-    "@material/web": "1.0.1"
+    "@material/web": "1.0.1",
+    "the-new-css-reset": "^1.11.1"
   }
 }
