@@ -64,6 +64,19 @@ const servePage = async (request, response) => {
   }
  }
 
+ const imagesExtensionsRegex = new RegExp(".*\.(jpg|jpeg)")
+ if (imagesExtensionsRegex.test(url)) {
+  try {
+    const imageFile = await fs.readFile(buildPath + url);
+    response.writeHead(200, { 'Content-Type': 'image/jpeg' });
+    response.write(imageFile);
+    response.end();
+    return;
+  } catch (error) {
+    console.error(`Error while grabbing imageFile @${url}: `, error);
+  }
+ }
+
  const userIpAddress = request.headers['x-forwarded-for']
   || request.socket.remoteAddress
   || null;
