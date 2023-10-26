@@ -6,23 +6,55 @@
       <script type="module" src="/components/hero_banner/hero_banner.mjs"></script>
       <script type="module" src="/components/footer/footer.mjs"></script>
 
+      <script type="module" src="/components/data-attributes/tooltip.mjs"></script>
+
       <link rel="stylesheet" href="/main.css">
 
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Devdauw Web</title>
+      <title>DevDauw</title>
     </head>
     <body>
       <header-component></header-component>
       <hero_banner-component></hero_banner-component>
       <section id="main-content">
+        <h2>
+          Who Is Me? <span is="has-tooltip" data-tooltip="Fancy some Jazz with your JavaScript?!"><a href="https://music.youtube.com/watch?v=LFn4s5LQ-0c" target="_blank" rel="noopener noreferrer">🎷</a></span>
+        </h2>
         <p>
-          Welcome on my website, this is using Vanilla JavaScript & CSS for everything. Why you may ask? React and consort are just unnecessary overhead on a private project. In my day to day, like everybody I'm using React, Express & all that jam and, as I continue to develop my software engineer skills, I feel like the whole opacity of the frameworks is holding me back.
+          Welcome to my website, I'm Julien, a <span id="currentAge"></span> years old tinkerer from Belgium 🇧🇪. It's using TypeScript & basic CSS for everything. In my day to day work, like most, I'm using React, Express & all that jazz and, as I continue to develop my software engineer skills, I feel like the whole opacity of the frameworks is holding me back.
         </p>
         <p>
-          That's why I decided to work from scracth on this `website`. So it's using NodeJS for serving pages instead of relying on Express/Deno/Bun or anything else. The only package imported from NPM are a bundler (rollup) so that I can use libraries for composing my website. I chose to use Material UI that just released version 3 recently.
+          Sure, it may be faster to plug & play whole frameworks and libraries, make me more employable by checking ✔️ another thing to put on <a href="http://" target="_blank" rel="noopener noreferrer">my resume</a>, but you don't get to learn and practice the basics. I never ran a barebone server using only Node before this project. I never worked with Web Components either, or modern CSS and since I don't have any shareholder to respond to, let's experiment!
+        </p>
+        <h2>The stack 🔥</h2>
+        <p>
+          This website is nearly built <i>from scratch</i>. That's not to say it isn't using mordern techniques and tooling. 
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components" target="_blank" rel="noopener noreferrer">Web Components!</a> With their Shadow DOM 🥷 allowing for easier styling without relying on Tailwind/Bootstrap/CSSFrameworkOfTheCurrentYear. And still composing the interface <i>à la</i> React.</li>
+            <li>NodeJS for routing instead of relying on Express/Deno/Bun and their abstractions! [It may change in the future. Bun seems interesting, maybe a part of this website will be served by it 🤷‍♂️]</li>
+            <li>Rollup as bundler. I'm using <a href="https://m3.material.io/develop/web">Material UI web</a> and <a href="https://github.com/WICG/import-maps">import maps aren't yet first class citizens</a>, it had to come! Plus reducing bundle size is always welcome and I never did bundler configuration before.</li>
+            <li>Served by Render as a Web Service. It will spin down if it hasn't been browsed in a while and you may wait when loading the website... What we do for nature 🌳!</li>
+            <li>For the Material UI part: I've limited ressources, mainly limited time because I don't lack imagination 🌈! Relying on proven open-source packages isn't a philosophical failure: I know accessibility isn't always the best for people with disabilities thus relying on tested and community maintained packages for a smoother experience is only logical!</li>
+          </ul> 
         </p>
       </section>
       <footer-component></footer-component>
     </body>
 </html>
+
+<script type="text/javascript">
+ /** 
+  * @param {Date} birthdate
+  * Calculate the difference in years between two dates using milliseconds from epoch
+  * Base date for JavaSript is 01/01/1970
+  * Found there: https://stackoverflow.com/questions/8152426/how-can-i-calculate-the-number-of-years-between-two-dates
+ */
+ function calculateAge(birthdate) {
+   const ageDifferenceMillisecconds = Date.now() - birthdate;
+   const ageFromEpoch = new Date(ageDifferenceMillisecconds); // miliseconds from epoch
+   return Math.abs(ageFromEpoch.getUTCFullYear() - 1970);
+ }
+
+ document.getElementById("currentAge").innerHTML = calculateAge(new Date("1988-03-22"));
+</script>
